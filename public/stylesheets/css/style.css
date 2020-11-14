@@ -1,0 +1,129 @@
+body{
+    margin: 0;
+	padding: 0;
+	background: #222024;
+    font-family: sans-serif;
+    border-radius: 10px;
+}
+.menu{
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    width: 90%;
+    margin-left: 70px;
+}
+.menu ul{
+    top: 40px;
+    left: 80px;
+    display: inline-flex;
+    margin: 50px;
+}
+.menu ul li{
+    list-style: none;
+    margin: 0 20px;
+    color:  #065858;
+    cursor: pointer;
+}
+.active{
+    color: #19dafa !important;
+}
+.btn {
+    top: 40px;
+    right: 100px;
+    position: absolute;
+    flex: 1 1 auto;
+    margin: 5px;
+    padding: 14px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 100% auto;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+}
+
+.content{
+    width: 90%;
+    height: 80%;
+    top: 22%;
+    left: 110px;
+    position: relative;
+    color: white;
+}
+.description{
+    width: 50%;
+    top: 25%;
+    position: absolute;
+}
+.description h2{
+    color: #0c3669;
+}
+.data{
+    width: 100%;
+    top: 150px;
+    position: absolute;
+}
+.data ul{
+    position: absolute;
+    width: auto;
+    color: #419497;
+    left: -25px;
+}
+
+.data ul.timeline li{   
+    color: rgb(34, 77, 126);
+}
+.data ul.timeline li:before{
+    content: "";
+    display: inline-block;
+    height: 31em;
+    width: 1px;
+    background: rgb(34, 77, 126);
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 22px;
+    top: -0.4em;
+    z-index: -1;
+}
+.data ul.timeline:before{
+    content: "●";
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: -1.4em;
+    top: -1em;
+    color: rgb(34, 77, 126);
+}
+.data ul.timeline:after{
+    content: "●";
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: -1.4em;
+    top: 2em;
+    color: rgb(34, 77, 126);
+}
+
+.btn-mb{
+    left: 130%;
+    position: absolute;
+    margin: 0 5px;
+    padding: 10px 30px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 50px;
+    background: teal;
+    cursor: pointer;
+}
+.btn-mb:hover {
+    -webkit-animation: hover 1200ms linear 2 alternate;
+    animation: hover 1200ms linear 2 alternate;
+}
+.btn-mb:active {
+    -webkit-animation: active 1200ms ease 1 alternate;
+    animation: active 1200ms ease 1 alternate; 
+    background: #5F9BE0;
+  }
