@@ -75,7 +75,11 @@ app.get('/sensor/createData', (req, res, next) => {
         })
     }
 
-    var inputData = getSensorData(2);
+    if (!req.query.data) {
+        req.query.data = 2;
+    }
+
+    var inputData = getSensorData(req.query.data);
 
     (async () => {
         var data = await asyncCreateData(req.query.sensorId, inputData.time.date, inputData.time.hour, inputData.time.minute, inputData.data);

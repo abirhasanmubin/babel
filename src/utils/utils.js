@@ -24,9 +24,11 @@ function getTimeLocal() {
 function getSensorData(n) {
     var time = getTimeLocal();
 
+    var arr = [6, 12, 60, 120, 300];
+
     var data = [];
 
-    for (let i = 0; i < 60 * n; i++) {
+    for (let i = 0; i < arr[n]; i++) {
         data.push(getRandom(15, 25));
     }
 
