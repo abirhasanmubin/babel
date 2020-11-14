@@ -54,7 +54,7 @@ body{
     position: absolute;
 }
 .description h2{
-    color: #0c3669;
+    color: #b2c0d6;
 }
 .data{
     width: 100%;
@@ -69,7 +69,7 @@ body{
 }
 
 .data ul.timeline li{   
-    color: rgb(34, 77, 126);
+    color: rgb(165, 174, 184);
 }
 .data ul.timeline li:before{
     content: "";

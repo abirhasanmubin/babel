@@ -33,11 +33,6 @@ app.get('', (req, res, next) => {
     res.render('index');
 });
 
-app.get('/sensor', (req, res, next) => {
-    res.render('sensor');
-})
-
-
 app.get('/sensor/createSensor', (req, res, next) => {
 
     if (!req.query.sname) {
