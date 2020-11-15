@@ -363,14 +363,7 @@ async function asyncGetSensorById(_sensorId) {
 async function asyncGetData(_dataId) {
     return await contract.methods.getData(_dataId).call();
 }
-// function getSensorList() {
-//     contract.methods
-//         .getSensorList()
-//         .call()
-//         .then(function (result) {
-//             return result;
-//         });
-// }
+
 
 
 
@@ -379,5 +372,4 @@ module.exports = {
     asyncCreateSensor,
     asyncCreateData,
     asyncGetData,
-    // asyncgetSensorList
 };
