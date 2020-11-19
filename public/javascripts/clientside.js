@@ -83,9 +83,9 @@ i05.addEventListener('click', async (event) => {
 d1.addEventListener('click', async (event) => {
     event.preventDefault();
     var t1 = performance.now();
-    await fetch('/sensor/getData?dataId=69').then(response => {
+    await fetch('/sensor/getData').then(response => {
         response.json().then(data => {
-            d2.textContent = data.sdata;
+            d2.textContent = "DataID: " + data.sdata[0] + "\nSensorId: " + data.sdata[1] + "\ndata: " + data.sdata[5];
         })
         t2 = performance.now();
         td.textContent = (((t2 - t1) / 1000).toPrecision(3)).toString() + ' seconds';

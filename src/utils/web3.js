@@ -8,7 +8,7 @@ var accountPrivateKey = '34f66b315ec66dcc140a693f1c8508de4f23eb5876b829500f4b2f5
 
 var privateKey = Buffer.from(accountPrivateKey, 'hex');
 
-var contractAddress = '0xe4edC0ae7Edd5EAF9EDEdC7A805590Af215c46c0';
+var contractAddress = '0xd3014C4D0E9162f291a1a28d5B3a2A796aD392FF';
 
 var abi = [
     {
@@ -163,12 +163,44 @@ var abi = [
                 "type": "uint256"
             }
         ],
-        "name": "getData",
+        "name": "getDataById",
         "outputs": [
             {
-                "internalType": "uint256[]",
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "dataId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "sensorId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "date",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "hour",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "minute",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "datas",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct MainContract.Data",
                 "name": "",
-                "type": "uint256[]"
+                "type": "tuple"
             }
         ],
         "stateMutability": "view",
@@ -176,12 +208,44 @@ var abi = [
     },
     {
         "inputs": [],
-        "name": "getSenesorList",
+        "name": "getLatestData",
         "outputs": [
             {
-                "internalType": "string[]",
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "dataId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "sensorId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "date",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "hour",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "minute",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "datas",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct MainContract.Data",
                 "name": "",
-                "type": "string[]"
+                "type": "tuple"
             }
         ],
         "stateMutability": "view",
@@ -198,9 +262,63 @@ var abi = [
         "name": "getSensorById",
         "outputs": [
             {
-                "internalType": "uint256[][]",
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "sensorId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_sensorString",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "sensorDataList",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct MainContract.Sensor",
                 "name": "",
-                "type": "uint256[][]"
+                "type": "tuple"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "dataId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "sensorId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "date",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "hour",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "minute",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "datas",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct MainContract.Data[]",
+                "name": "",
+                "type": "tuple[]"
             }
         ],
         "stateMutability": "view",
@@ -361,7 +479,11 @@ async function asyncGetSensorById(_sensorId) {
 }
 
 async function asyncGetData(_dataId) {
-    return await contract.methods.getData(_dataId).call();
+    return await contract.methods.getDataById(_dataId).call();
+}
+
+async function asyncGetLatestData() {
+    return await contract.methods.getLatestData().call();
 }
 
 
@@ -372,4 +494,5 @@ module.exports = {
     asyncCreateSensor,
     asyncCreateData,
     asyncGetData,
+    asyncGetLatestData
 };

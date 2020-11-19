@@ -7,7 +7,7 @@ import {
     asyncCreateData,
     asyncGetData,
     asyncGetSensorById,
-    // getSensorList
+    asyncGetLatestData
 } from './utils/web3';
 
 import { getSensorData } from './utils/utils';
@@ -93,9 +93,13 @@ app.get('/sensor/createData', (req, res, next) => {
 app.get('/sensor/getData', (req, res, next) => {
 
     if (!req.query.dataId) {
-        return res.send({
-            error: 'You must provide an Data ID.'
-        })
+        (async () => {
+            var sda = await asyncGetLatestData(req.query.dataId);
+            res.send({
+                sdata: sda,
+                name: "abirhasanmubin"
+            });
+        })();
     }
 
     (async () => {
