@@ -1,4 +1,4 @@
-import Web3 from 'web3';
+var Web3 = require('web3')
 
 var Tx = require('ethereumjs-tx').Transaction;
 

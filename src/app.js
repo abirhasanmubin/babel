@@ -10,6 +10,12 @@ import {
     asyncGetLatestData
 } from './utils/web3';
 
+import {
+    createData,
+    getData,
+    getLatestData
+} from './utils/thor';
+
 import { getSensorData } from './utils/utils';
 
 import async from 'hbs/lib/async';
@@ -94,7 +100,7 @@ app.get('/sensor/getData', (req, res, next) => {
 
     if (!req.query.dataId) {
         (async () => {
-            var sda = await asyncGetLatestData(req.query.dataId);
+            var sda = await asyncGetLatestData();
             res.send({
                 sdata: sda,
                 name: "abirhasanmubin"

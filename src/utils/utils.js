@@ -10,23 +10,23 @@ function addZero(number) {
 }
 
 function getTimeLocal() {
-    var time = new Date();
-    var year = time.getFullYear();
-    var month = time.getMonth();
-    var day = time.getDate();
-    var hour = time.getHours();
-    var minute = time.getMinutes();
+    let time = new Date();
+    let year = time.getFullYear();
+    let month = time.getMonth() + 1;
+    let day = time.getDate();
+    let hour = time.getHours();
+    let minute = time.getMinutes();
 
-    var date = year + month + day;
-    return { date, hour, minute };
+    let result = addZero(year) + addZero(month) + addZero(day) + addZero(hour) + addZero(minute);
+    return result;
 }
 
-function getSensorData(n) {
-    var time = getTimeLocal();
+function getSensorData(n = 2) {
+    let time = getTimeLocal();
 
-    var arr = [6, 12, 60, 120, 300];
+    let arr = [6, 12, 60, 120, 300];
 
-    var data = [];
+    let data = [];
 
     for (let i = 0; i < arr[n]; i++) {
         data.push(getRandom(15, 25));
@@ -35,15 +35,5 @@ function getSensorData(n) {
     return { time, data };
 }
 
-
-
 module.exports = { getSensorData };
-
-
-
-// var asy = require('./test')
-
-// let result = asy.asyncGetData(0);
-
-// console.log(result);
 

@@ -4,28 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylesheets/css/style.css">
-    <title>Home</title>
+    <link rel="stylesheet" href="./stylesheets/css/style.css"> <!-- ./stylesheets/css/style.css -->
+    <title>Thor</title>
 </head>
 
 <body>
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li class="active">Home</li>
+                <li>Sensor</li>
+                <li class="btn addS">Add Sensor</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="description">
+                <h2>Greetings from Thor Sensory !<br>Set data description and go on.</h2>
+            </div>
+            <div class="data">
+                <ul class="timeline">
+                    <li>
+                        <h2>Send 1 sensor data per 10 seconds <button id="ips10" class="btn-mb"
+                                -type="submit">Send</button></h2>
+                        <div class="visual">
+                            <h3 id="data10">
+                            </h3>
+                            <h3 id="data10T">
 
+                            </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>Send 1 sensor data per 5 seconds <button id="ips5" class="btn-mb"
+                                -type="submit">Send</button></h2>
+                        <div class="visual">
+                            <h3 id="data5">
+                            </h3>
+                            <h3 id="data5T">
 
-    <h1>Welcome to Sensory</h1>
-    <button type="submit">add a sensor</button>
-    <h2>Send 1 MB of data <button id="1MB" type="submit">Send</button></h2>
-    <div>For Data</div>
-    <h2>Send 5 MB of data <button id="5MB" type="submit">Send</button></h2>
-    <div>For Data</div>
-    <h2>Send 10 MB of data <button id="10MB" type="submit">Send</button></h2>
-    <div>For Data</div>
-    <h2>Send 25 MB of data <button id="25MB" type="submit">Send</button></h2>
-    <div>For Data</div>
-    <h2>Send 50 MB of data <button id="50MB" type="submit">Send</button></h2>
-    <div>For Data</div>
+                            </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>Send 1 sensor data per 1 second <button id="ips1" class="btn-mb"
+                                -type="submit">Send</button></h2>
+                        <div class="visual">
+                            <h3 id="data1">
+                            </h3>
+                            <h3 id="data1T">
 
+                            </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>Send 2 sensor datas per 1 second <button id="ips02" class="btn-mb"
+                                -type="submit">Send</button></h2>
+                        <div class="visual">
+                            <h3 id="data02">
+                            </h3>
+                            <h3 id="data02T">
 
+                            </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>Send 5 sensor datas per 1 second <button id="ips05" class="btn-mb"
+                                -type="submit">Send</button></h2>
+                        <div class="visual">
+                            <h3 id="data05">
+                            </h3>
+                            <h3 id="data05T">
+
+                            </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>Get Latest Data <button class="btn-mb" id="dataS" type="submit">Send</button> </h2>
+                        <div class="visual">
+                            <h3 id="dataR">
+                            </h3>
+                            <h3 id="dataT">
+
+                            </h3>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
-<script src="/javascripts/clientside.js"></script>
+<script src="/javascripts/clientside-thor.js"></script>
 
 </html>
