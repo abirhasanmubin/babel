@@ -26,7 +26,7 @@ var td = document.querySelector('#dataT');
 i1.addEventListener('click', async (event) => {
     event.preventDefault();
     var t1 = performance.now();
-    await fetch('/sensor/createData?sensorId=0&data=0').then(response => {
+    await fetch('/sensor/createData?data=0').then(response => {
         response.json().then(data => {
             m1.textContent = 'TxnHash: ' + data.sdata.transactionHash + '\n\n Gas Used: ' + data.sdata.gasUsed;
         })
@@ -37,7 +37,7 @@ i1.addEventListener('click', async (event) => {
 i2.addEventListener('click', async (event) => {
     event.preventDefault();
     var t1 = performance.now();
-    await fetch('/sensor/createData?sensorId=0&data=1').then(response => {
+    await fetch('/sensor/createData?data=1').then(response => {
         response.json().then(data => {
             m2.textContent = 'TxnHash: ' + data.sdata.transactionHash + '\n\n Gas Used: ' + data.sdata.gasUsed;
         })
@@ -48,7 +48,7 @@ i2.addEventListener('click', async (event) => {
 i3.addEventListener('click', async (event) => {
     event.preventDefault();
     var t1 = performance.now();
-    await fetch('/sensor/createData?sensorId=0&data=2').then(response => {
+    await fetch('/sensor/createData?data=2').then(response => {
         response.json().then(data => {
             m3.textContent = 'TxnHash: ' + data.sdata.transactionHash + '\n\n Gas Used: ' + data.sdata.gasUsed;
         })
@@ -60,7 +60,7 @@ i3.addEventListener('click', async (event) => {
 i02.addEventListener('click', async (event) => {
     event.preventDefault();
     var t1 = performance.now();
-    await fetch('/sensor/createData?sensorId=0&data=3').then(response => {
+    await fetch('/sensor/createData?data=3').then(response => {
         response.json().then(data => {
             m02.textContent = 'TxnHash: ' + data.sdata.transactionHash + '\n\n Gas Used: ' + data.sdata.gasUsed;
         })
@@ -71,7 +71,7 @@ i02.addEventListener('click', async (event) => {
 i05.addEventListener('click', async (event) => {
     event.preventDefault();
     var t1 = performance.now();
-    await fetch('/sensor/createData?sensorId=0&data=4').then(response => {
+    await fetch('/sensor/createData?data=4').then(response => {
         response.json().then(data => {
             m05.textContent = 'TxnHash: ' + data.sdata.transactionHash + '\n\n Gas Used: ' + data.sdata.gasUsed;
         })
@@ -83,9 +83,9 @@ i05.addEventListener('click', async (event) => {
 d1.addEventListener('click', async (event) => {
     event.preventDefault();
     var t1 = performance.now();
-    await fetch('/sensor/getData?dataId=0').then(response => {
+    await fetch('/sensor/getData').then(response => {
         response.json().then(data => {
-            d2.textContent = "DataID: " + data.sdata[0] + "\nSensorId: " + data.sdata[1] + "\ndata: " + data.sdata[5];
+            d2.textContent = data.sdata;
         })
         t2 = performance.now();
         td.textContent = (((t2 - t1) / 1000).toPrecision(3)).toString() + ' seconds';

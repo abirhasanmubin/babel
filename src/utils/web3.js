@@ -8,29 +8,14 @@ var accountPrivateKey = '34f66b315ec66dcc140a693f1c8508de4f23eb5876b829500f4b2f5
 
 var privateKey = Buffer.from(accountPrivateKey, 'hex');
 
-var contractAddress = '0xd3014C4D0E9162f291a1a28d5B3a2A796aD392FF';
+var contractAddress = '0x6a23b3091b8adD3FC68F6949DfCaFfdA81817F9C';
 
 var abi = [
     {
         "inputs": [
             {
-                "internalType": "uint256",
-                "name": "_sensorId",
-                "type": "uint256"
-            },
-            {
                 "internalType": "string",
-                "name": "_date",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_hour",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_minute",
+                "name": "_time",
                 "type": "string"
             },
             {
@@ -40,25 +25,6 @@ var abi = [
             }
         ],
         "name": "createData",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "_sensorString",
-                "type": "string"
-            }
-        ],
-        "name": "createSensor",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -93,66 +59,22 @@ var abi = [
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
             }
         ],
         "name": "dataList",
         "outputs": [
             {
                 "internalType": "uint256",
-                "name": "dataId",
+                "name": "",
                 "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "sensorId",
-                "type": "uint256"
-            },
-            {
-                "internalType": "string",
-                "name": "date",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "hour",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "minute",
-                "type": "string"
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "_date",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_hour",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_minute",
-                "type": "string"
-            }
-        ],
-        "name": "dateToString",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "pure",
         "type": "function"
     },
     {
@@ -163,44 +85,31 @@ var abi = [
                 "type": "uint256"
             }
         ],
-        "name": "getDataById",
+        "name": "getData",
         "outputs": [
             {
-                "components": [
-                    {
-                        "internalType": "uint256",
-                        "name": "dataId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "sensorId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "date",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "hour",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "minute",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "uint256[]",
-                        "name": "datas",
-                        "type": "uint256[]"
-                    }
-                ],
-                "internalType": "struct MainContract.Data",
+                "internalType": "uint256[]",
                 "name": "",
-                "type": "tuple"
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_time",
+                "type": "string"
+            }
+        ],
+        "name": "getDataId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -211,151 +120,9 @@ var abi = [
         "name": "getLatestData",
         "outputs": [
             {
-                "components": [
-                    {
-                        "internalType": "uint256",
-                        "name": "dataId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "sensorId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "date",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "hour",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "minute",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "uint256[]",
-                        "name": "datas",
-                        "type": "uint256[]"
-                    }
-                ],
-                "internalType": "struct MainContract.Data",
+                "internalType": "uint256[]",
                 "name": "",
-                "type": "tuple"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_sensorId",
-                "type": "uint256"
-            }
-        ],
-        "name": "getSensorById",
-        "outputs": [
-            {
-                "components": [
-                    {
-                        "internalType": "uint256",
-                        "name": "sensorId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_sensorString",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "uint256[]",
-                        "name": "sensorDataList",
-                        "type": "uint256[]"
-                    }
-                ],
-                "internalType": "struct MainContract.Sensor",
-                "name": "",
-                "type": "tuple"
-            },
-            {
-                "components": [
-                    {
-                        "internalType": "uint256",
-                        "name": "dataId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "sensorId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "date",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "hour",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "minute",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "uint256[]",
-                        "name": "datas",
-                        "type": "uint256[]"
-                    }
-                ],
-                "internalType": "struct MainContract.Data[]",
-                "name": "",
-                "type": "tuple[]"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "sensorCounter",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "sensorList",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "sensorId",
-                "type": "uint256"
-            },
-            {
-                "internalType": "string",
-                "name": "_sensorString",
-                "type": "string"
+                "type": "uint256[]"
             }
         ],
         "stateMutability": "view",
@@ -396,11 +163,11 @@ var contract = new web3.eth.Contract(abi, contractAddress, {
 
 contract.defaultAccount = accountAddress;
 
+async function createData(_time, arr) {
 
-async function asyncCreateSensor(_sensorName) {
     let nonce = await web3.eth.getTransactionCount(accountAddress);
 
-    let data = await contract.methods.createSensor(_sensorName).encodeABI();
+    let data = await contract.methods.createData(_time, arr).encodeABI();
 
     let gasPrice = await web3.eth.getGasPrice();
     gasPrice = web3.utils.toHex(gasPrice);
@@ -435,54 +202,11 @@ async function asyncCreateSensor(_sensorName) {
         });
 }
 
-async function asyncCreateData(_sensorId, _date, _hour, _minute, arr) {
-
-    let nonce = await web3.eth.getTransactionCount(accountAddress);
-
-    let data = await contract.methods.createData(_sensorId, _date, _hour, _minute, arr).encodeABI();
-
-    let gasPrice = await web3.eth.getGasPrice();
-    gasPrice = web3.utils.toHex(gasPrice);
-
-    let gasPriceLimit = await web3.eth.estimateGas({
-        "from": accountAddress,
-        "nonce": nonce,
-        "to": contractAddress,
-        "data": data
-    });
-    gasPriceLimit = web3.utils.toHex(gasPriceLimit);
-
-    let rawTx = {
-        "nonce": nonce,
-        "from": accountAddress,
-        "gasPrice": gasPrice,
-        "gasLimit": gasPriceLimit,
-        "to": contractAddress,
-        "value": "0x00",
-        "data": data
-    }
-    var tx = new Tx(rawTx, { 'chain': 'ropsten' });
-    tx.sign(privateKey);
-    var serializedTx = tx.serialize();
-
-    return await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'))
-        .then((err, res) => {
-            if (err) {
-                return err;
-            }
-            return res;
-        });
+async function getData(_dataId) {
+    return await contract.methods.getData(_dataId).call();
 }
 
-async function asyncGetSensorById(_sensorId) {
-    return await contract.methods.getSensorById(_sensorId).call();
-}
-
-async function asyncGetData(_dataId) {
-    return await contract.methods.getDataById(_dataId).call();
-}
-
-async function asyncGetLatestData() {
+async function getLatestData() {
     return await contract.methods.getLatestData().call();
 }
 
@@ -490,9 +214,7 @@ async function asyncGetLatestData() {
 
 
 module.exports = {
-    asyncGetSensorById,
-    asyncCreateSensor,
-    asyncCreateData,
-    asyncGetData,
-    asyncGetLatestData
+    createData,
+    getData,
+    getLatestData
 };
